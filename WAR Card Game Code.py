@@ -9,7 +9,7 @@ class Card:
     def __init__(self, suit, rank):
         self.suit = suit
         self.rank = rank
-        sefl.value = values[rank]
+        self.value = values[rank]
 
     def __str__(self):
         return self.rank + " of " + self.suit
@@ -28,7 +28,7 @@ class Deck:
                 self.all_cards.append(created_card)
 
     def  shuffle(self):
-        random.shuffle(self.all.cards)
+        random.shuffle(self.all_cards)
 
     def deal_one(self):
         return self.all_cards.pop()
@@ -61,7 +61,7 @@ player_one = Player("One")
 player_two = Player("Two")
 
 # Create a new desk and shuffle.
-new_deck - Deck()
+new_deck = Deck()
 new_deck.shuffle()
 
 
@@ -96,3 +96,41 @@ player_one_cards.append(player_one.remove_one())
 
 player_two_cards = []
 player_two_cards.append(player_two.remove_one())
+
+
+at_war = True
+
+while at_war:
+    if player_one_cards[-1].value > player_two_cards[-1].value:
+        player_one.add_cards(player_one_cards)
+        player_one.add_cards(player_two_cards)
+
+        at_war == False
+
+    elif player_one_cards[-1].value < player_two_cards[-1].value:
+        player_two.add_cards(player_one_cards)
+        player_two.add_cards(player_two_cards)
+
+        at_war == False
+
+    else:
+        print('WAR!')
+
+        if len(player_one.all_cards) < 5:
+            print("Player One unable to declare war due to lack of cards")
+            print("Player Two wins!")
+            game_one = False
+            break
+
+        elif len(player_two_cards.all_cards) < 5:
+            print("Player Two unable to declare war due to lack of cards")
+            print("Player One wins!")
+            game_one = False
+            break
+
+        else:
+            for num in range(5):
+                player_one_cards.append(player_one.remove_one())
+                player_two_cards.append(player_two.remove_one())
+
+
