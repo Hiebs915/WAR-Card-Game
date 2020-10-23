@@ -53,3 +53,46 @@ class Player:
 
         def __str__(self):
             return f'Player {self.name} has {len(self.all_cards)} cards.'
+
+
+#GAME SETUP
+#Create two players.
+player_one = Player("One")
+player_two = Player("Two")
+
+# Create a new desk and shuffle.
+new_deck - Deck()
+new_deck.shuffle()
+
+
+# Deals out 26 cards to each player.  Each player gets 26 because there are 52 cards total.
+for x in range(26):
+    player_one.add_cards(new_deck.deal_one())
+    player_two.add_cards(new_deck.deal_one())
+
+# Set variable to have game continue.
+game_on = True
+round_num = 0
+
+# Loop continues until someone has won.
+while game_on:
+    round_num += 1
+    print(f"Round {round_num}")
+
+    if len(player_one.all_cards) == 0:
+        print('Player One, out of cards!  Player Two winds!')
+        game_on = False
+        break
+
+    if len(player_two.all_cards) == 0:
+        print('Player Twe, out of cards!  Player Ono winds!')
+        game_on = False
+        break
+
+
+# START NEW ROUND
+player_one_cards = []
+player_one_cards.append(player_one.remove_one())
+
+player_two_cards = []
+player_two_cards.append(player_two.remove_one())
