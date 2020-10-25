@@ -5,6 +5,8 @@ values = {'Two':2, 'Three':3, 'Four':4, 'Five':5, 'Six':6, 'Seven':7, 'Eight':8,
 
 playing = True
 
+#-----------------------------------------------------------------------------#
+
 class Card:
     def __init__(self, suit, rank):
         self.suit = suit
@@ -14,7 +16,7 @@ class Card:
     def __str__(self):
         return self.rank + " of " + self.suit
 
-
+#-----------------------------------------------------------------------------#
 
 class Deck:
     def __init__(self):
@@ -33,7 +35,7 @@ class Deck:
     def deal_one(self):
         return self.all_cards.pop()
 
-
+#-----------------------------------------------------------------------------#
 
 class Player:
     def __init__(self,name):
@@ -57,6 +59,7 @@ class Player:
     def __str__(self):
         return f'Player {self.name} has {len(self.all_cards)} cards.'
 
+#-----------------------------------------------------------------------------#
 
 #GAME SETUP
 #Create two players.
