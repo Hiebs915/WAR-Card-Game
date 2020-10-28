@@ -66,7 +66,7 @@ class Player:
 player_one = Player("One")
 player_two = Player("Two")
 
-# Create a new desk and shuffle.
+# Create a new deck and shuffle.
 new_deck = Deck()
 new_deck.shuffle()
 
